@@ -7,6 +7,7 @@
     <title>Test Page - Moveit</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="icon" href="/moveitmock.png" type="image/png" />
     <style>
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
@@ -29,6 +30,31 @@
         .bg-gradient-custom {
             background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
         }
+
+    /*logo*/
+        .marquee-wrapper {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: marquee 20s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .marquee-wrapper:hover .marquee-track {
+            animation-play-state: paused;
+        }
     </style>
 </head>
 
@@ -40,12 +66,11 @@
             <!-- Logo -->
             <a href="index.html" class="flex items-center space-x-3 hover:opacity-80 transition-opacity duration-300">
                 <div class="relative">
-                    <img src="moveitmock.png" alt="box icon" width="32" height="32" class="filter drop-shadow-sm">
+                    <img src="moveitmock.png" alt="box icon" width="50" height="42" class="filter drop-shadow-sm">
                     <div class="absolute -top-1 -right-1 w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                 </div>
                 <div>
-                    <span class="text-xl font-bold text-gray-900">Moveit</span>
-                    <div class="text-xs text-gray-500 font-medium">Test Page</div>
+                    <span class="text-xl font-bold text-gray-900">Moveit Project</span>
                 </div>
             </a>
 
@@ -109,7 +134,6 @@
                 <li>• Tailwind CSS</li>
                 <li>• Font Awesome Icons</li>
                 <li>• Responsive Design</li>
-                <li>• Code modified by Claude AI</li>
             </ul>
         </div>
 
@@ -130,6 +154,26 @@
             </ul>
         </div>
     </div>
+
+    <section class="m-10 overflow-hidden">
+        <div class="marquee-wrapper group">
+            <div class="marquee-track">
+                <!-- First set of logos -->
+                <div class="flex items-center justify-center space-x-12 px-6">
+                    <img src="/html-file-icon.svg" alt="Logo 1" class="h-12 transition-transform hover:scale-105" />
+                    <img src="/html.svg" alt="Logo 2" class="h-12 transition-transform hover:scale-105" />
+                    <img src="/bootstrap-4-icon.svg" alt="Logo 3" class="h-12 transition-transform hover:scale-105" />
+                    <img src="/github-copilot-icon.svg" alt="Logo 4" class="h-12 transition-transform hover:scale-105" />
+                    <img src="/javascript-programming-language-icon.svg" alt="Logo 5" class="h-12 transition-transform hover:scale-105" />
+                    <img src="/tailwind-css-icon.svg" alt="Logo 1" class="h-12 transition-transform hover:scale-105" />
+                    <img src="/icons8-netlify-100.png" alt="Logo 1" class="h-12 transition-transform hover:scale-105" />
+                    <img src="/icons8-chatgpt-250.png" alt="Logo 1" class="h-12 transition-transform hover:scale-105" />
+                    <img src="/icons8-claude-144.png" alt="Logo 1" class="h-12 transition-transform hover:scale-105" />
+                    <img src="/icons8-webstorm-480.png" alt="Logo 1" class="h-12 transition-transform hover:scale-105" />
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Important Notice -->
     <div class="bg-white rounded-2xl p-8 shadow-lg border-2 border-dashed border-gray-300 mb-16 animate-fade-in">
@@ -212,23 +256,34 @@
 <!-- Footer -->
 <footer class="bg-gray-900 text-white py-8 mt-16">
     <div class="container mx-auto px-6 text-center">
-        <div class="flex items-center justify-center space-x-3 mb-4">
-            <img src="moveitmock.png" alt="box icon" width="24" height="24">
+
+        <!-- Logo + Title -->
+        <div class="flex items-center justify-center space-x-3 mb-4 transform transition duration-500 hover:scale-105">
+            <img src="moveitmock.png" alt="box icon" width="80" height="80" class="transition duration-500 hover:rotate-3">
             <span class="text-lg font-bold">Moveit - Demo Project</span>
         </div>
-        <p class="text-gray-400">
+
+        <!-- Description -->
+        <p class="text-gray-400 text-sm leading-relaxed transition-all duration-500 hover:tracking-wide">
             This is a portfolio demonstration website. Not affiliated with any real moving company.
-            <br>
-            <br>
+            <br><br>
             <i class="text-blue-400">Image and content credit to Angela Yu (Full Stack web development course 2024 - Udemy)</i>
         </p>
+
+        <!-- Return Link -->
         <div class="mt-4">
-            <a href="index.html" class="text-green-400 hover:text-green-300 transition-colors duration-300">
+            <a href="index.html" class="text-green-400 hover:text-green-300 transition duration-300 hover:underline hover:translate-x-1 inline-block">
                 ← Return to Main Website
             </a>
+            <br />
+            <br />
+            <br />
+            <small><a href="https://icons8.com" target="_blank">Icons by icons8.com</a></small>
         </div>
+
     </div>
 </footer>
+
 
 <script>
     // Add some interactivity
