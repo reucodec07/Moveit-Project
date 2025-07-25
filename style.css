@@ -1,0 +1,455 @@
+/* Custom CSS Variables - Original Project Colors */
+:root {
+    --primary-color: #198754;
+    --secondary-color: #6c757d;
+    --success-color: #198754;
+    --dark-color: #212529;
+    --light-color: #f8f9fa;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Force all blue/purple/yellow/pink colors to green - COMPREHENSIVE OVERRIDE */
+.text-blue-600,
+.text-blue-500,
+.text-blue-400,
+.text-indigo-600,
+.text-indigo-500,
+.text-purple-600,
+.text-purple-500,
+.text-yellow-600,
+.text-yellow-500,
+.text-pink-600,
+.text-pink-500,
+.text-orange-500 {
+    color: #198754 !important;
+}
+
+.bg-blue-600,
+.bg-blue-500,
+.bg-blue-400,
+.bg-indigo-600,
+.bg-indigo-500,
+.bg-purple-600,
+.bg-purple-500,
+.bg-yellow-600,
+.bg-yellow-500,
+.bg-pink-600,
+.bg-pink-500,
+.bg-orange-500 {
+    background-color: #198754 !important;
+}
+
+.bg-blue-100,
+.bg-indigo-100,
+.bg-purple-100,
+.bg-yellow-100,
+.bg-pink-100,
+.bg-orange-100 {
+    background-color: rgba(25, 135, 84, 0.1) !important;
+}
+
+/* Force all gradient backgrounds to green */
+.from-blue-500,
+.from-blue-600,
+.from-green-500,
+.from-purple-500,
+.from-indigo-500,
+.from-yellow-500,
+.from-pink-500 {
+    --tw-gradient-from: #198754 !important;
+}
+
+.to-blue-600,
+.to-blue-500,
+.to-green-600,
+.to-purple-600,
+.to-indigo-600,
+.to-yellow-600,
+.to-pink-600 {
+    --tw-gradient-to: #198754 !important;
+}
+
+/* Force ring colors to green */
+.ring-blue-500,
+.ring-blue-600,
+.focus\:ring-blue-500:focus,
+.focus\:ring-blue-600:focus {
+    --tw-ring-color: rgb(25 135 84 / 0.5) !important;
+}
+
+/* Force hover text colors to green */
+.hover\:text-blue-600:hover,
+.hover\:text-blue-500:hover,
+.hover\:text-indigo-600:hover,
+.hover\:text-purple-600:hover,
+.hover\:text-yellow-600:hover,
+.hover\:text-pink-600:hover {
+    color: #198754 !important;
+}
+
+/* Force hover background colors to green */
+.hover\:bg-white:hover {
+    background-color: white !important;
+}
+
+/* Custom Button Styles - Green Primary */
+.btn-primary {
+    @apply bg-green-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-green-700 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg;
+}
+
+.btn-primary-large {
+    @apply bg-green-600 text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-green-700 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl flex items-center;
+}
+
+.btn-outline-large {
+    @apply border-2 border-white text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-white hover:text-green-600 transition-all duration-300 hover:-translate-y-1 flex items-center;
+}
+
+.btn-light-large {
+    @apply bg-white text-green-600 px-8 py-3 rounded-lg font-semibold text-lg hover:bg-gray-50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
+}
+
+.btn-outline-light-large {
+    @apply border-2 border-white text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-white hover:text-green-600 transition-all duration-300 hover:-translate-y-1;
+}
+
+/* Enhanced Navigation Styles */
+.navbar {
+    @apply fixed top-0 left-0 right-0 z-50 transition-all duration-300;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 1px 30px rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    @apply flex items-center space-x-3 hover:opacity-80 transition-opacity duration-300;
+}
+
+/* New Navigation Links */
+.nav-link-new {
+    @apply relative text-gray-900 hover:text-green-600 font-medium transition-all duration-300 py-2 px-1 flex items-center;
+}
+
+.nav-indicator {
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-green-600 transition-all duration-300;
+}
+
+.nav-link-new:hover .nav-indicator {
+    @apply w-full;
+}
+
+/* Services Dropdown - Fixed for both class names */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 0.5rem;
+    width: 20rem;
+    background-color: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    border: 1px solid #e5e7eb;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(0.5rem);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.group:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Services Dropdown - Alternative class name support */
+.services-dropdown {
+    position: relative;
+}
+
+.services-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 0.5rem;
+    width: 20rem;
+    background-color: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    border: 1px solid #e5e7eb;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(0.5rem);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.services-dropdown:hover .services-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Dropdown items */
+.dropdown-item {
+    display: block;
+    padding: 0.75rem 1rem;
+    transition: background-color 0.2s ease;
+    border-bottom: 1px solid #f3f4f6;
+    color: #212529;
+}
+
+.dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.dropdown-item:hover {
+    background-color: #f8f9fa;
+    color: #198754 !important;
+}
+
+/* CTA Button - Green Primary */
+.cta-button {
+    @apply bg-green-600 text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-green-700 transition-all duration-300 flex items-center group shadow-lg hover:shadow-xl;
+}
+
+/* Hero Section - Clean White Background */
+.hero-section {
+    @apply relative overflow-hidden pt-20 bg-white;
+}
+
+.hero-overlay::before {
+    content: '';
+    @apply absolute inset-0;
+    background: linear-gradient(135deg, rgba(25, 135, 84, 0.05) 0%, rgba(25, 135, 84, 0.1) 100%);
+}
+
+.hero-content {
+    @apply relative z-10 text-gray-900;
+}
+
+.hero-title {
+    @apply text-3xl lg:text-4xl font-extrabold mb-4 text-gray-900;
+    animation: fadeInUp 1s ease;
+}
+
+.hero-subtitle {
+    @apply text-base lg:text-lg mb-6 text-gray-600 leading-relaxed;
+    animation: fadeInUp 1s ease 0.2s both;
+}
+
+.hero-buttons {
+    animation: fadeInUp 1s ease 0.4s both;
+    @apply flex flex-col sm:flex-row gap-4;
+}
+
+.hero-image {
+    animation: float 6s ease-in-out infinite;
+}
+
+.hero-image img {
+    @apply max-w-lg mx-auto;
+}
+
+/* Animations */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Feature Cards */
+.feature-card {
+    @apply bg-white rounded-3xl p-8 text-center shadow-xl transition-all duration-300 h-full border-0 hover:-translate-y-2 hover:shadow-2xl;
+}
+
+.feature-icon {
+    @apply w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl;
+    background: #198754 !important; /* Force green background */
+}
+
+.feature-title {
+    @apply text-2xl font-bold mb-4 text-gray-900;
+}
+
+.feature-text {
+    @apply text-gray-600 leading-relaxed;
+}
+
+/* New Testimonial Cards */
+.testimonial-card-new {
+    @apply bg-white border border-gray-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+    @apply bg-white border-t border-gray-100 shadow-lg;
+}
+
+.mobile-nav-link {
+    @apply flex items-center space-x-3 px-4 py-3 text-gray-700 hover:text-green-600 hover:bg-gray-50 transition-all duration-300 rounded-lg mx-4;
+}
+
+.mobile-services-accordion {
+    @apply mx-4;
+}
+
+.mobile-services-content {
+    @apply overflow-hidden transition-all duration-300;
+}
+
+.mobile-services-content.show {
+    @apply block;
+}
+
+/* CTA Section Background */
+.cta-section {
+    @apply py-20 bg-green-600;
+}
+
+/* Footer */
+.footer-brand {
+    @apply text-2xl font-bold text-green-600 mb-4;
+}
+
+.footer-text {
+    @apply text-gray-600 leading-relaxed mb-6;
+}
+
+.footer-links {
+    @apply list-none space-y-2;
+}
+
+.footer-links a {
+    @apply text-gray-600 hover:text-green-600 transition-colors duration-300;
+}
+
+.social-icons {
+    @apply flex space-x-4;
+}
+
+.social-icon {
+    @apply w-10 h-10 bg-green-600 rounded-full flex items-center justify-center text-white hover:bg-green-700 transition-all duration-300 hover:-translate-y-1;
+}
+
+/* Scroll Animations */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+}
+
+.scroll-animate.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Loading Animation */
+.loading-overlay {
+    @apply fixed inset-0 bg-white flex items-center justify-center z-50 transition-opacity duration-500;
+}
+
+.loading-spinner {
+    @apply w-12 h-12 border-4 border-gray-200 border-t-green-600 rounded-full;
+    animation: spin 1s linear infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-title {
+        @apply text-2xl;
+    }
+
+    .hero-subtitle {
+        @apply text-sm;
+    }
+
+    .hero-buttons {
+        @apply flex flex-col space-y-4;
+    }
+
+    .btn-primary-large,
+    .btn-outline-large {
+        @apply w-full text-center justify-center;
+    }
+
+    .stat-number {
+        @apply text-3xl;
+    }
+
+    .feature-card {
+        @apply p-6;
+    }
+}
+
+/* Custom Tailwind Utilities */
+@layer utilities {
+    .text-shadow {
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .text-shadow-lg {
+        text-shadow: 0 4px 8px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    .backdrop-blur-sm {
+        backdrop-filter: blur(4px);
+    }
+
+    .backdrop-blur {
+        backdrop-filter: blur(8px);
+    }
+
+    .backdrop-blur-lg {
+        backdrop-filter: blur(16px);
+    }
+}
+
+/* Enhanced Hover Effects */
+.feature-card:hover .feature-icon {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+.btn-primary:hover,
+.btn-primary-large:hover {
+    box-shadow: 0 10px 25px rgba(25, 135, 84, 0.4);
+}
+
+/* Focus States for Accessibility */
+input:focus,
+button:focus {
+    @apply outline-none ring-2 ring-green-500 ring-opacity-50;
+}
+
+/* Smooth Transitions */
+* {
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}

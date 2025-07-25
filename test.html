@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page - Moveit</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .animate-pulse-slow {
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .bg-gradient-custom {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-custom min-h-screen font-sans">
+<!-- Navigation Bar -->
+<nav class="bg-white shadow-lg border-b-4 border-green-600">
+    <div class="container mx-auto px-6">
+        <div class="flex justify-between items-center h-16">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center space-x-3 hover:opacity-80 transition-opacity duration-300">
+                <div class="relative">
+                    <img src="box-seam.svg" alt="box icon" width="32" height="32" class="filter drop-shadow-sm">
+                    <div class="absolute -top-1 -right-1 w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                </div>
+                <div>
+                    <span class="text-xl font-bold text-gray-900">Moveit</span>
+                    <div class="text-xs text-gray-500 font-medium">Test Page</div>
+                </div>
+            </a>
+
+            <!-- Back Button -->
+            <a href="index.html" class="bg-green-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-green-700 transition-all duration-300 flex items-center space-x-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                </svg>
+                <span>Back to Home</span>
+            </a>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<div class="container mx-auto px-6 py-12">
+    <!-- Hero Section -->
+    <div class="text-center mb-16 animate-fade-in">
+        <div class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-yellow-100 text-yellow-800 mb-6">
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.732-.833-2.5 0L4.232 15.5C3.462 16.333 4.424 18 5.982 18z"></path>
+            </svg>
+            Demo Website Notice
+        </div>
+
+        <h1 class="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
+            🚧 Mock Website Content 🚧
+        </h1>
+
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
+            This is a demonstration page for the Moveit website project. All content, services, and features shown are for portfolio and testing purposes only.
+        </p>
+    </div>
+
+    <!-- Information Cards -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <!-- About This Project -->
+        <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in border-l-4 border-blue-500">
+            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">About This Project</h3>
+            <p class="text-gray-600 leading-relaxed">
+                This is a modern, responsive website built with HTML, CSS, JavaScript, and Tailwind CSS. It showcases professional web development skills and modern design principles.
+            </p>
+        </div>
+
+        <!-- Technologies Used -->
+        <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in border-l-4 border-green-500">
+            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-6">
+                <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Technologies Used</h3>
+            <ul class="text-gray-600 space-y-2">
+                <li>• HTML5 & CSS3</li>
+                <li>• JavaScript (ES6+)</li>
+                <li>• Tailwind CSS</li>
+                <li>• Font Awesome Icons</li>
+                <li>• Responsive Design</li>
+                <li>• Code modified by Claude AI</li>
+            </ul>
+        </div>
+
+        <!-- Features -->
+        <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in border-l-4 border-purple-500">
+            <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
+                <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Key Features</h3>
+            <ul class="text-gray-600 space-y-2">
+                <li>• Mobile-First Design</li>
+                <li>• Smooth Animations</li>
+                <li>• Interactive Elements</li>
+                <li>• Modern UI/UX</li>
+                <li>• Cross-Browser Compatible</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Important Notice -->
+    <div class="bg-white rounded-2xl p-8 shadow-lg border-2 border-dashed border-gray-300 mb-16 animate-fade-in">
+        <div class="text-center">
+            <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-slow">
+                <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">⚠️ Important Notice</h3>
+            <div class="text-gray-600 space-y-4 max-w-3xl mx-auto">
+                <p class="text-lg">
+                    <strong>This is NOT a real moving company website.</strong>
+                </p>
+                <p>
+                    All services, testimonials, contact information, and business details are fictional and created solely for demonstration purposes. This website is part of a web development portfolio project.
+                </p>
+                <p>
+                    If you're looking for actual moving services, please search for legitimate, licensed moving companies in your area.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Links Testing -->
+    <div class="bg-white rounded-2xl p-8 shadow-lg mb-16 animate-fade-in">
+        <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">Navigation Links Status</h3>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                <span class="font-medium text-gray-700">Home</span>
+                <span class="text-green-600 font-semibold">✓ Active</span>
+            </div>
+            <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                <span class="font-medium text-gray-700">Services</span>
+                <span class="text-yellow-600 font-semibold">→ Mock Page</span>
+            </div>
+            <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                <span class="font-medium text-gray-700">About</span>
+                <span class="text-yellow-600 font-semibold">→ Mock Page</span>
+            </div>
+            <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                <span class="font-medium text-gray-700">Reviews</span>
+                <span class="text-yellow-600 font-semibold">→ Mock Page</span>
+            </div>
+            <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                <span class="font-medium text-gray-700">Contact</span>
+                <span class="text-yellow-600 font-semibold">→ Mock Page</span>
+            </div>
+            <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                <span class="font-medium text-gray-700">Quote Form</span>
+                <span class="text-yellow-600 font-semibold">→ Demo Only</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Stats -->
+    <div class="bg-gradient-to-r from-green-600 to-blue-600 rounded-2xl p-8 text-white text-center animate-fade-in">
+        <h3 class="text-2xl font-bold mb-8">Project Development Stats</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div>
+                <div class="text-3xl font-bold">100%</div>
+                <div class="text-green-100">Responsive</div>
+            </div>
+            <div>
+                <div class="text-3xl font-bold">5+</div>
+                <div class="text-green-100">Sections</div>
+            </div>
+            <div>
+                <div class="text-3xl font-bold">15+</div>
+                <div class="text-green-100">Components</div>
+            </div>
+            <div>
+                <div class="text-3xl font-bold">0</div>
+                <div class="text-green-100">Real Services</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-white py-8 mt-16">
+    <div class="container mx-auto px-6 text-center">
+        <div class="flex items-center justify-center space-x-3 mb-4">
+            <img src="box-seam.svg" alt="box icon" width="24" height="24">
+            <span class="text-lg font-bold">Moveit - Demo Project</span>
+        </div>
+        <p class="text-gray-400">
+            This is a portfolio demonstration website. Not affiliated with any real moving company.
+            <br>
+            <br>
+            <i class="text-blue-400">Image and content credit to Angela Yu (Full Stack web development course 2024 - Udemy)</i>
+        </p>
+        <div class="mt-4">
+            <a href="index.html" class="text-green-400 hover:text-green-300 transition-colors duration-300">
+                ← Return to Main Website
+            </a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Add some interactivity
+    document.addEventListener('DOMContentLoaded', function() {
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animate-fade-in elements
+        document.querySelectorAll('.animate-fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.8s ease';
+            observer.observe(el);
+        });
+
+        // Add click analytics (mock)
+        document.addEventListener('click', function(e) {
+            if (e.target.tagName === 'A' || e.target.closest('a')) {
+                console.log('Link clicked on test page:', e.target.href || e.target.closest('a').href);
+            }
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Find the stats section
+        const statsSection = document.querySelector('.bg-gradient-to-r.from-green-600.to-blue-600');
+
+        if (statsSection) {
+            // Get all the number elements
+            const numbers = statsSection.querySelectorAll('.text-3xl.font-bold');
+
+            // Store original values
+            const targets = ['100%', '5+', '15+', '0'];
+
+            // Set initial values to 0
+            numbers[0].textContent = '0%';
+            numbers[1].textContent = '0+';
+            numbers[2].textContent = '0+';
+            numbers[3].textContent = '0';
+
+            // Create observer
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Animate the numbers
+                        animateNumber(numbers[0], 100, '%', 2000);
+                        animateNumber(numbers[1], 5, '+', 1500);
+                        animateNumber(numbers[2], 15, '+', 1800);
+                        animateNumber(numbers[3], 0, '', 1000);
+
+                        // Stop observing after animation starts
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            observer.observe(statsSection);
+        }
+
+        function animateNumber(element, target, suffix, duration) {
+            let start = 0;
+            const increment = target / (duration / 50);
+
+            const timer = setInterval(() => {
+                start += increment;
+                if (start >= target) {
+                    element.textContent = target + suffix;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(start) + suffix;
+                }
+            }, 50);
+        }
+    });
+</script>
+</body>
+
+</html>
