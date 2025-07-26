@@ -1000,3 +1000,111 @@ if ('serviceWorker' in navigator) {
         //     .catch(error => console.log('SW registration failed'));
     });
 }
+
+window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
+
+// Enhanced Mobile Menu Functionality
+function initializeNavigation() {
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileServicesBtn = document.getElementById('mobileServicesBtn');
+    const mobileServicesContent = document.querySelector('.mobile-services-content');
+
+    // Mobile menu toggle
+    if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+
+            // Toggle hamburger icon
+            const icon = mobileMenuBtn.querySelector('i');
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.className = 'fas fa-bars text-xl text-gray-700';
+            } else {
+                icon.className = 'fas fa-times text-xl text-gray-700';
+            }
+        });
+    }
+
+    // Mobile services accordion - FIXED VERSION
+    if (mobileServicesBtn && mobileServicesContent) {
+        mobileServicesBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            // Toggle the content visibility
+            mobileServicesContent.classList.toggle('show');
+
+            // Toggle the button active state
+            mobileServicesBtn.classList.toggle('active');
+
+            // Rotate arrow icon
+            const arrow = mobileServicesBtn.querySelector('svg, i');
+            if (mobileServicesContent.classList.contains('show')) {
+                if (arrow.tagName === 'svg') {
+                    arrow.style.transform = 'rotate(180deg)';
+                } else {
+                    arrow.style.transform = 'rotate(180deg)';
+                }
+            } else {
+                if (arrow.tagName === 'svg') {
+                    arrow.style.transform = 'rotate(0deg)';
+                } else {
+                    arrow.style.transform = 'rotate(0deg)';
+                }
+            }
+        });
+    }
+
+    // Close mobile menu when clicking on regular nav links
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link:not(#mobileServicesBtn)');
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.className = 'fas fa-bars text-xl text-gray-700';
+            }
+        });
+    });
+
+    // Close mobile menu when clicking on service links
+    const serviceLinks = document.querySelectorAll('.mobile-services-content a');
+    serviceLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.className = 'fas fa-bars text-xl text-gray-700';
+            }
+        });
+    });
+
+    // Enhanced navbar scroll behavior
+    let lastScrollTop = 0;
+    window.addEventListener('scroll', throttle(function() {
+        const navbar = document.querySelector('.navbar');
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (navbar) {
+            if (scrollTop > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        }
+
+        lastScrollTop = scrollTop;
+    }, 16));
+}
+
+// Make sure to call this function when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    initializeNavigation();
+    // ... your other initialization functions
+});

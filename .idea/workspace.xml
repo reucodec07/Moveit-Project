@@ -5,21 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe99949b-2f72-46ed-880e-8381dc6fe3f1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/bootstrap-4-icon.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/github-copilot-icon.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/html-file-icon.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/html.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/icons8-chatgpt-250.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/icons8-claude-144.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/icons8-netlify-100.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/icons8-nextjs.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/icons8-webstorm-480.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javascript-programming-language-icon.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tailwind-css-icon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nav.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +36,7 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "test1",
+    "git-widget-placeholder": "deploy1",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -77,6 +68,7 @@
       <workItem from="1753450963072" duration="6853000" />
       <workItem from="1753470380394" duration="127000" />
       <workItem from="1753470780537" duration="5543000" />
+      <workItem from="1753555855414" duration="4670000" />
     </task>
     <servers />
   </component>

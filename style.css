@@ -1,3 +1,26 @@
+/* Netlify Deployment Fixes */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+}
+
+/* Ensure images don't break layout */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Loading state for navigation */
+#navbar-container {
+    min-height: 80px;
+}
+
 /* Custom CSS Variables - Original Project Colors */
 :root {
     --primary-color: #198754;
@@ -122,105 +145,386 @@ html {
     @apply border-2 border-white text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-white hover:text-green-600 transition-all duration-300 hover:-translate-y-1;
 }
 
-/* Enhanced Navigation Styles */
+/* Enhanced Navigation Styles - Updated Version */
 .navbar {
-    @apply fixed top-0 left-0 right-0 z-50 transition-all duration-300;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     box-shadow: 0 1px 30px rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Enhanced navbar on scroll */
+.navbar.scrolled {
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 2px 40px rgba(0, 0, 0, 0.12);
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+/* Navbar brand enhancement */
 .navbar-brand {
-    @apply flex items-center space-x-3 hover:opacity-80 transition-opacity duration-300;
+    display: flex;
+    align-items: center;
+    space-x: 12px;
+    transition: all 0.3s ease;
+    text-decoration: none;
 }
 
-/* New Navigation Links */
+.navbar-brand:hover {
+    opacity: 0.8;
+    transform: translateX(2px);
+}
+
+/* Enhanced Navigation Links - Creative Hover Effects */
 .nav-link-new {
-    @apply relative text-gray-900 hover:text-green-600 font-medium transition-all duration-300 py-2 px-1 flex items-center;
+    position: relative;
+    color: #374151;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    overflow: hidden;
 }
 
+/* Creative Hover Effect - Sliding Underline with Glow */
+.nav-link-new::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #198754, #20c997, #198754);
+    background-size: 200% 100%;
+    transform: translateX(-50%);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 1px;
+    box-shadow: 0 0 10px rgba(25, 135, 84, 0);
+}
+
+.nav-link-new::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(25, 135, 84, 0.1), transparent);
+    transition: left 0.6s ease;
+}
+
+.nav-link-new:hover {
+    color: #198754;
+    transform: translateY(-1px);
+}
+
+.nav-link-new:hover::before {
+    width: 80%;
+    background-position: 100% 0;
+    box-shadow: 0 0 15px rgba(25, 135, 84, 0.4);
+}
+
+.nav-link-new:hover::after {
+    left: 100%;
+}
+
+/* Remove old nav-indicator since we're using ::before now */
 .nav-indicator {
-    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-green-600 transition-all duration-300;
+    display: none;
 }
 
-.nav-link-new:hover .nav-indicator {
-    @apply w-full;
-}
-
-/* Services Dropdown - Fixed for both class names */
+/* Enhanced Services Dropdown with Creative Animation */
 .dropdown-menu {
     position: absolute;
-    top: 100%;
+    top: calc(100% + 8px);
     left: 0;
-    margin-top: 0.5rem;
-    width: 20rem;
-    background-color: white;
-    border-radius: 0.75rem;
+    width: 22rem;
+    background: white;
+    border-radius: 12px;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
     border: 1px solid #e5e7eb;
     opacity: 0;
     visibility: hidden;
-    transform: translateY(0.5rem);
-    transition: all 0.3s ease;
+    transform: translateY(8px) scale(0.98) rotateX(-10deg);
+    transform-origin: top center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 1000;
+    overflow: hidden;
+    perspective: 1000px;
 }
 
 .group:hover .dropdown-menu {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
+    transform: translateY(0) scale(1) rotateX(0deg);
 }
 
-/* Services Dropdown - Alternative class name support */
-.services-dropdown {
-    position: relative;
-}
-
-.services-dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    margin-top: 0.5rem;
-    width: 20rem;
-    background-color: white;
-    border-radius: 0.75rem;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-    border: 1px solid #e5e7eb;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(0.5rem);
-    transition: all 0.3s ease;
-    z-index: 1000;
-}
-
-.services-dropdown:hover .services-dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-/* Dropdown items */
+/* Creative Dropdown Items with Slide-in Effect */
 .dropdown-item {
     display: block;
-    padding: 0.75rem 1rem;
-    transition: background-color 0.2s ease;
+    padding: 16px 20px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     border-bottom: 1px solid #f3f4f6;
-    color: #212529;
+    color: #374151;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transform: translateX(-20px);
+    opacity: 0;
+}
+
+.dropdown-item::before {
+    content: '';
+    position: absolute;
+    left: -100%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(25, 135, 84, 0.1), rgba(25, 135, 84, 0.05));
+    transition: left 0.3s ease;
+}
+
+.group:hover .dropdown-item {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.group:hover .dropdown-item:nth-child(1) { transition-delay: 0.1s; }
+.group:hover .dropdown-item:nth-child(2) { transition-delay: 0.15s; }
+.group:hover .dropdown-item:nth-child(3) { transition-delay: 0.2s; }
+.group:hover .dropdown-item:nth-child(4) { transition-delay: 0.25s; }
+
+.dropdown-item:hover {
+    color: #198754;
+    transform: translateX(8px);
+    background: rgba(25, 135, 84, 0.05);
+}
+
+.dropdown-item:hover::before {
+    left: 0;
 }
 
 .dropdown-item:last-child {
     border-bottom: none;
 }
 
-.dropdown-item:hover {
-    background-color: #f8f9fa;
-    color: #198754 !important;
+/* Enhanced CTA Button with Pulse and Shine Effect */
+.cta-button {
+    background: linear-gradient(135deg, #198754, #20c997);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 14px rgba(25, 135, 84, 0.3);
+    position: relative;
+    overflow: hidden;
 }
 
-/* CTA Button - Green Primary */
-.cta-button {
-    @apply bg-green-600 text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-green-700 transition-all duration-300 flex items-center group shadow-lg hover:shadow-xl;
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s ease;
+}
+
+.cta-button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover::before {
+    left: 100%;
+}
+
+.cta-button:hover::after {
+    width: 200px;
+    height: 200px;
+}
+
+.cta-button:hover {
+    background: linear-gradient(135deg, #157347, #1a9c7a);
+    box-shadow: 0 6px 20px rgba(25, 135, 84, 0.4);
+    transform: translateY(-2px) scale(1.02);
+}
+
+.cta-button:active {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 2px 8px rgba(25, 135, 84, 0.3);
+}
+
+/* Creative Mobile Nav Links */
+.mobile-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    color: #374151;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 8px;
+    margin: 0 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.mobile-nav-link::before {
+    content: '';
+    position: absolute;
+    left: -100%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(25, 135, 84, 0.05), rgba(25, 135, 84, 0.1), rgba(25, 135, 84, 0.05));
+    transition: left 0.4s ease;
+}
+
+.mobile-nav-link:hover {
+    color: #198754;
+    transform: translateX(8px);
+}
+
+.mobile-nav-link:hover::before {
+    left: 0;
+}
+
+.mobile-nav-link i {
+    width: 20px;
+    text-align: center;
+    color: #6b7280;
+    transition: all 0.3s ease;
+}
+
+.mobile-nav-link:hover i {
+    color: #198754;
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* Mobile Services Accordion */
+.mobile-services-accordion {
+    margin: 0 8px;
+}
+
+.mobile-services-content {
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-8px);
+}
+
+.mobile-services-content.show {
+    max-height: 200px;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Mobile services button styling */
+#mobileServicesBtn {
+    width: 100%;
+    justify-content: space-between;
+}
+
+#mobileServicesBtn svg,
+#mobileServicesBtn i {
+    transition: transform 0.3s ease;
+}
+
+#mobileServicesBtn.active svg,
+#mobileServicesBtn.active i {
+    transform: rotate(180deg);
+}
+
+.mobile-services-content a {
+    display: block;
+    padding: 8px 16px;
+    color: #6b7280;
+    text-decoration: none;
+    border-radius: 6px;
+    margin: 2px 0;
+    transition: all 0.2s ease;
+    transform: translateX(8px);
+}
+
+.mobile-services-content a:hover {
+    background: rgba(25, 135, 84, 0.05);
+    color: #198754;
+    transform: translateX(12px);
+}
+
+/* Responsive Enhancements */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0;
+    }
+
+    .mobile-menu {
+        margin: 0 8px;
+        border-radius: 12px;
+    }
+
+    .cta-button {
+        padding: 12px 20px;
+        font-size: 0.95rem;
+        justify-content: center;
+    }
+}
+
+/* Scroll behavior enhancement */
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 80px; /* Account for fixed navbar */
+    }
+}
+
+/* Focus states for accessibility */
+.nav-link-new:focus,
+.cta-button:focus,
+.mobile-nav-link:focus {
+    outline: 2px solid #198754;
+    outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .navbar {
+        border-bottom: 2px solid #000;
+    }
+
+    .nav-link-new:hover {
+        background-color: #198754;
+        color: white;
+    }
 }
 
 /* Hero Section - Clean White Background */
@@ -452,4 +756,267 @@ button:focus {
     transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 150ms;
+}
+
+
+/* Mobile Bottom Navigation - Modern iOS/Android Style */
+@media (max-width: 1023px) {
+    /* Hide desktop nav on mobile */
+    .navbar .hidden.lg\\:flex {
+        display: none !important;
+    }
+
+    /* Hide original mobile menu */
+    #mobileMenu {
+        display: none !important;
+    }
+
+    /* Bottom Navigation Container */
+    .mobile-bottom-nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        padding: 8px 0 calc(8px + env(safe-area-inset-bottom));
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Bottom Nav Grid */
+    .bottom-nav-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 4px;
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 0 16px;
+    }
+
+    /* Bottom Nav Items */
+    .bottom-nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 4px;
+        text-decoration: none;
+        color: #6b7280;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        border-radius: 12px;
+        position: relative;
+        overflow: hidden;
+        min-height: 60px;
+    }
+
+    /* Active/Hover State Background */
+    .bottom-nav-item::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(25, 135, 84, 0.1), rgba(25, 135, 84, 0.05));
+        border-radius: 12px;
+        opacity: 0;
+        transform: scale(0.8);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .bottom-nav-item:hover::before,
+    .bottom-nav-item.active::before {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    /* Icons */
+    .bottom-nav-item i {
+        font-size: 20px;
+        margin-bottom: 4px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        z-index: 2;
+    }
+
+    .bottom-nav-item:hover i,
+    .bottom-nav-item.active i {
+        color: #198754;
+        transform: translateY(-2px) scale(1.1);
+    }
+
+    /* Labels */
+    .bottom-nav-item span {
+        font-size: 11px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        position: relative;
+        z-index: 2;
+        text-align: center;
+    }
+
+    .bottom-nav-item:hover span,
+    .bottom-nav-item.active span {
+        color: #198754;
+        font-weight: 600;
+    }
+
+    /* Special Services Button (Center) */
+    .bottom-nav-item.services-btn {
+        position: relative;
+    }
+
+    .bottom-nav-item.services-btn i {
+        background: linear-gradient(135deg, #198754, #20c997);
+        color: white;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        margin-bottom: 6px;
+        box-shadow: 0 4px 12px rgba(25, 135, 84, 0.3);
+    }
+
+    .bottom-nav-item.services-btn:hover i {
+        transform: translateY(-4px) scale(1.05);
+        box-shadow: 0 6px 16px rgba(25, 135, 84, 0.4);
+    }
+
+    /* Services Modal/Popup */
+    .services-popup {
+        position: fixed;
+        bottom: 80px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        width: calc(100vw - 32px);
+        max-width: 320px;
+        z-index: 1001;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(-50%) translateY(20px) scale(0.9);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .services-popup.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0) scale(1);
+    }
+
+    .services-popup h3 {
+        font-size: 18px;
+        font-weight: 700;
+        color: #111827;
+        margin-bottom: 16px;
+        text-align: center;
+    }
+
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .service-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 16px 8px;
+        background: #f9fafb;
+        border-radius: 12px;
+        text-decoration: none;
+        color: #374151;
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
+    }
+
+    .service-item:hover {
+        background: rgba(25, 135, 84, 0.05);
+        border-color: rgba(25, 135, 84, 0.2);
+        transform: translateY(-2px);
+    }
+
+    .service-item i {
+        font-size: 24px;
+        color: #198754;
+        margin-bottom: 8px;
+    }
+
+    .service-item span {
+        font-size: 12px;
+        font-weight: 500;
+        text-align: center;
+        line-height: 1.3;
+    }
+
+    /* Backdrop for services popup */
+    .services-backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(2px);
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .services-backdrop.show {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Add bottom padding to body to account for bottom nav */
+    body {
+        padding-bottom: 80px;
+    }
+
+    /* Update navbar for mobile */
+    .navbar {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        box-shadow: 0 1px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Hide hamburger button since we're using bottom nav */
+    #mobileMenuBtn {
+        display: none;
+    }
+
+    /* Adjust hero section padding for bottom nav */
+    .hero-section {
+        padding-bottom: 40px;
+    }
+}
+
+/* Animations for active states */
+@keyframes bounce-in {
+    0% { transform: scale(0.3) translateY(-50px); opacity: 0; }
+    50% { transform: scale(1.05) translateY(-10px); }
+    70% { transform: scale(0.9) translateY(0); }
+    100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.bottom-nav-item.active i {
+    animation: bounce-in 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Safe area insets for newer phones */
+@supports (padding: max(0px)) {
+    .mobile-bottom-nav {
+        padding-bottom: max(8px, env(safe-area-inset-bottom));
+    }
 }
