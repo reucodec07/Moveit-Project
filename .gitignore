@@ -7,3 +7,13 @@
 
 /.idea
 .idea/
+node_modules/
+.vscode/
+.DS_Store
+build/
+dist/
+.gradle/
+local.properties
+.next/
+.venv/
+*.log
